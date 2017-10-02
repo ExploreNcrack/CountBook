@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/body1"
+                android:layout_width="match_parent"
+                android:scrollbars="horizontal"
+                android:hint="Name:"
+                android:textSize="20sp"
+                android:layout_height="60dp" />
+
+
+
+            <TextView
+                android:id="@+id/body2"
+                android:layout_width="match_parent"
+                android:scrollbars="horizontal"
+                android:hint="Initial Value:"
+                android:layout_height="60dp"
+                android:textSize="20sp"
+                android:inputType="numberDecimal" />
+
+
+            <TextView
+                android:id="@+id/body4"
+                android:layout_width="match_parent"
+                android:scrollbars="horizontal"
+                android:hint="Current Value:"
+                android:textSize="20sp"
+                android:layout_height="60dp" />
+
+
+
+            <TextView
+                android:id="@+id/body3"
+                android:layout_width="match_parent"
+                android:scrollbars="horizontal"
+                android:hint="Comment:"
+                android:textSize="20sp"
+                android:layout_height="60dp" />
+
+
+
+
+            <Button
+                android:id="@+id/Finish_View"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/finishView"
+                />
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

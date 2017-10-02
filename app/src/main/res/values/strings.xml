@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">zhaozhen-CountBook</string>
     <string name="add">Add</string>
+    <string name="Del">Delete</string>
+    <string name="save">Save</string>
+    <string name="Reset">Reset</string>
+    <string name="Increase">Increase</string>
+    <string name="Decrease">Decrease</string>
+    <string name="finishView">Finish View</string>
 </resources>
