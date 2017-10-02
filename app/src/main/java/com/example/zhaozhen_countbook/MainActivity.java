@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if (item.getTitle().equals("Edit info")) {
             Toast.makeText(this, "Editing", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(MainActivity.this, EditActivity.class);
-            i.putExtra("MyClass", position);
+            i.putExtra("position", position);
             startActivity(i);
         }
         else if (item.getTitle() == "Delete") {
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         else if (item.getTitle() == "View info") {
             Toast.makeText(this, "Viewing", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(MainActivity.this, ViewActivity.class);
-            i.putExtra("MyClass", position);
+            i.putExtra("position", position);
             startActivity(i);
         }
 

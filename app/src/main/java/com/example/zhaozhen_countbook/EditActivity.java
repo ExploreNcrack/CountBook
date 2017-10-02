@@ -19,7 +19,7 @@ public class EditActivity extends MainActivity {
         setContentView(R.layout.activity_edit);
 
         Intent intent = getIntent();
-        final int current_pos = intent.getIntExtra("MyClass", 0);
+        final int current_pos = intent.getIntExtra("position", 0);
 
         final EditText nameTxt = (EditText) findViewById(R.id.body1);
 
@@ -43,11 +43,62 @@ public class EditActivity extends MainActivity {
             @Override
             public void onClick(View view){
 
-                int init = Integer.parseInt(InitialValue.getText().toString() );
-                counter.set(current_pos, new Counter(nameTxt.getText().toString(), commentTxt.getText().toString(),init));
 
-                saveInFile();
+                int init=0;
+                int current = 0;
+
+                if(!"".equals(InitialValue.getText().toString().trim()) && !"".equals(CurrentValue.getText().toString().trim())) {
+                    init = Integer.parseInt(InitialValue.getText().toString());
+                    current = Integer.parseInt(CurrentValue.getText().toString());
+
+                    if (!"".equals(nameTxt.getText().toString().trim()) ) {
+
+                        counter.get(current_pos).setCurrentValue(current);
+
+                        counter.get(current_pos).setComment(commentTxt.getText().toString());
+
+                        counter.get(current_pos).setInitialValue(init);
+
+                        counter.get(current_pos).setName(nameTxt.getText().toString());
+
+                        saveInFile();
+
+                        finish();
+                    }
+                    else {Toast.makeText(getApplicationContext(), "InputError", Toast.LENGTH_SHORT).show();}
+                }
+
+
+
+                else if (!"".equals(InitialValue.getText().toString().trim()) && "".equals(CurrentValue.getText().toString().trim())) {
+
+                    init = Integer.parseInt(InitialValue.getText().toString());
+
+                    if (!"".equals(nameTxt.getText().toString().trim()) ) {
+
+                        counter.get(current_pos).setCurrentValue(init);
+
+                        counter.get(current_pos).setComment(commentTxt.getText().toString());
+
+                        counter.get(current_pos).setName(nameTxt.getText().toString());
+
+                        counter.get(current_pos).setInitialValue(init);
+
+                        saveInFile();
+
+                        finish();
+                    }
+
+                    else {Toast.makeText(getApplicationContext(), "InputError", Toast.LENGTH_SHORT).show();}
+
+                }
+
+                else {Toast.makeText(getApplicationContext(), "InputError", Toast.LENGTH_SHORT).show();}
+
             }
+
+
+
         });
 
 
@@ -105,7 +156,7 @@ public class EditActivity extends MainActivity {
     protected void onStart(){
         super.onStart();
         Intent intent = getIntent();
-        int pos = intent.getIntExtra("MyClass",0);
+        int pos = intent.getIntExtra("position",0);
 
 
         final EditText nameTxt = (EditText) findViewById(R.id.body1);
@@ -116,15 +167,13 @@ public class EditActivity extends MainActivity {
 
         final EditText commentTxt = (EditText) findViewById(R.id.body3);
 
-        //final Button saveBtn = (Button) findViewById(R.id.saveBtn);
 
         nameTxt.setText(counter.get(pos).getName());
         InitialValue.setText(String.valueOf(counter.get(pos).getInitialValue()));
         CurrentValue.setText(String.valueOf(counter.get(pos).getCurrentValue()));
         commentTxt.setText(counter.get(pos).getComment());
 
-        //ArrayAdapter<TheSize> adapter= new TheSizeListAdapter();
-        //sizeListView.setAdapter(adapter);
+
     }
 
 

@@ -39,7 +39,7 @@ public class ViewActivity extends MainActivity {
     protected void onStart(){
         super.onStart();
         Intent intent = getIntent();
-        int pos = intent.getIntExtra("MyClass",0);
+        int pos = intent.getIntExtra("position",0);
 
 
         final TextView nameTxt = (TextView) findViewById(R.id.body1);
@@ -50,15 +50,14 @@ public class ViewActivity extends MainActivity {
 
         final TextView commentTxt = (TextView) findViewById(R.id.body3);
 
-        //final Button saveBtn = (Button) findViewById(R.id.saveBtn);
+
 
         nameTxt.setText(counter.get(pos).getName());
         InitialValue.setText(String.valueOf(counter.get(pos).getInitialValue()));
         CurrentValue.setText(String.valueOf(counter.get(pos).getCurrentValue()));
         commentTxt.setText(counter.get(pos).getComment());
 
-        //ArrayAdapter<TheSize> adapter= new TheSizeListAdapter();
-        //sizeListView.setAdapter(adapter);
+
     }
 
 

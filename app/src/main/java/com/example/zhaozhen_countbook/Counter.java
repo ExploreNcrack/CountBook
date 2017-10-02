@@ -58,7 +58,7 @@ public class Counter {
 
     public String toString() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        return "Name: "+Name + "\nCurrent Count: " + Integer.toString(InitialValue) + "\nComment: " + getComment() + "\nDate:" + df.format(date);
+        return "Name: "+Name + "\nCurrent Count: " + Integer.toString(CurrentValue) + "\nDate:" + df.format(date);
     }
 
 }

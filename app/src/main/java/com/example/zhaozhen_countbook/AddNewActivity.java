@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class AddNewActivity extends MainActivity {
@@ -28,39 +29,23 @@ public class AddNewActivity extends MainActivity {
             @Override
             public void onClick(View view){
 
+                int init=0;
+
+                if(!"".equals(InitialValue.getText().toString().trim())) {
+                    init = Integer.parseInt(InitialValue.getText().toString());
 
 
-                int init = Integer.parseInt(InitialValue.getText().toString() );
+                    if (!"".equals(nameTxt.getText().toString().trim()) ) {
+                        counter.add(new Counter(nameTxt.getText().toString(), commentTxt.getText().toString(), init));
 
-                counter.add (new Counter(nameTxt.getText().toString(), commentTxt.getText().toString(), init ));
+                        saveInFile();
 
-                saveInFile();
-
-                finish();
-/*
-                InitialValue.addTextChangedListener(new TextWatcher() {
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                        checkInputs();
+                        finish();
                     }
+                    else Toast.makeText(getApplicationContext(), "InputError", Toast.LENGTH_SHORT).show();
+                }
+                else Toast.makeText(getApplicationContext(), "InputError", Toast.LENGTH_SHORT).show();
 
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        checkInputs();
-                    }
-
-                    public void afterTextChanged(Editable s) { checkInputs(); }
-
-                    private void checkInputs() {
-                        if (nameTxt.getText().toString().matches("") || InitialValue.getText().toString().matches("")) {
-                            saveBtn.setEnabled(false);
-                        }else{
-                            saveBtn.setEnabled(true);
-                        }
-                    }
-                });
-*/
-
-
-               // saveInFile();
             }
         });
 
