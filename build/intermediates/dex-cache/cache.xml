@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/PSdream/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="/Users/PSdream/Desktop/LAB4/zhaozhen-CountBook/app/build/intermediates/pre-dexed/debug/gson-2.8.0_9276150dcb0528aa9416ce4b2a3adeddf1e77126.jar" />
+    </item>
+
+</items>
