@@ -9,16 +9,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+// sub activity for editing existed info for a counter
 public class EditActivity extends MainActivity {
 
 
 
     @Override
+    //initialization
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
         Intent intent = getIntent();
+
+        //getting references
         final int current_pos = intent.getIntExtra("position", 0);
 
         final EditText nameTxt = (EditText) findViewById(R.id.body1);
@@ -38,6 +43,7 @@ public class EditActivity extends MainActivity {
         final EditText CurrentValue = (EditText) findViewById(R.id.body4);
 
 
+        // check clicks and handles
 
         saveBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -46,6 +52,8 @@ public class EditActivity extends MainActivity {
 
                 int init=0;
                 int current = 0;
+
+                //check user input before saving the data for them
 
                 if(!"".equals(InitialValue.getText().toString().trim()) && !"".equals(CurrentValue.getText().toString().trim())) {
                     init = Integer.parseInt(InitialValue.getText().toString());
@@ -159,6 +167,8 @@ public class EditActivity extends MainActivity {
         int pos = intent.getIntExtra("position",0);
 
 
+        //overwrite the edit text from datastructure
+        
         final EditText nameTxt = (EditText) findViewById(R.id.body1);
 
         final EditText InitialValue = (EditText) findViewById(R.id.body2);

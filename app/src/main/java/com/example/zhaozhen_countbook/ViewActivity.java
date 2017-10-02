@@ -10,11 +10,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+//sub Activity for just viewing all the existed content for a counter
 public class ViewActivity extends MainActivity {
 
 
 
     @Override
+    //initialization
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
@@ -22,9 +25,9 @@ public class ViewActivity extends MainActivity {
 
 
 
-        final Button finish = (Button) findViewById(R.id.Finish_View);
+        final Button finish = (Button) findViewById(R.id.Finish_View); //getting referece for the finish button
 
-
+        //check click and handle
         finish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -35,12 +38,14 @@ public class ViewActivity extends MainActivity {
     }
 
 
-
+    //initialization
     protected void onStart(){
         super.onStart();
         Intent intent = getIntent();
         int pos = intent.getIntExtra("position",0);
 
+
+        //overwrite the edit text from datastructure and then display it out
 
         final TextView nameTxt = (TextView) findViewById(R.id.body1);
 

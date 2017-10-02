@@ -26,26 +26,38 @@ import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+
+/**
+ *Root Activity class for the main page display activity
+ */
+
 public class MainActivity extends AppCompatActivity {
 
-    public static final String FILENAME = "file.sav";
 
-    int LongClickedItemIndex;
+    public static final String FILENAME = "file.sav";  //file destination to save arraylist data for the user
 
-    public ListView view_list;
-    public ArrayList<Counter> counter = new ArrayList<Counter>();
-    public ArrayAdapter<Counter>adapter;
-    //private ArrayList<tweet> tweets = new ArrayList<tweet>();
-    //private ArrayAdapter<tweet> adapter;
+    private int LongClickedItemIndex;   //pos of click
+
+    private ListView view_list;  // reference for the listview in MainActivity xml
+
+    public ArrayList<Counter> counter = new ArrayList<Counter>(); //data structure for the user data info and the listview display content
+
+    public ArrayAdapter<Counter>adapter;  //adapter in Counter type for transfering data structure info to the xml display
+
+
 
     @Override
+    /**
+     * first method to call for initialzing the main activity
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button addButton = (Button) findViewById(R.id.add);
-        view_list = (ListView) findViewById(R.id.listView_content);
+        Button addButton = (Button) findViewById(R.id.add);   // getting reference to the add button in xml
+        view_list = (ListView) findViewById(R.id.listView_content);  //getting reference to the listview in xml
 
+        //check button click
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,9 +67,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //register for menu initialization
         registerForContextMenu(view_list);
 
-
+        //check long click and find position
         view_list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id){
@@ -72,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
+    //menu setting
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -84,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
+    //handle click menu activity
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int position = info.position;
@@ -120,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
+    //initializing
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
@@ -127,14 +143,14 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new ArrayAdapter<Counter>(this,android.R.layout.simple_list_item_1, counter);
         view_list.setAdapter(adapter);
-        //adapter.notifyDataSetChanged();
+
 
     }
 
 
 
 
-
+    //load file method
     public void loadFromFile() {
         try {
             FileInputStream fis = openFileInput(FILENAME);
@@ -150,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //save file method
     public void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME,

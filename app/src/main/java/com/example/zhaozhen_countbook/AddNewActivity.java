@@ -6,12 +6,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//sub activity for handling add a new counter
 
 public class AddNewActivity extends MainActivity {
 
 
 
     @Override
+    //initialization
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new);
@@ -25,6 +27,7 @@ public class AddNewActivity extends MainActivity {
         final Button saveBtn = (Button) findViewById(R.id.saveBtn);
 
 
+        //check clicks and check user input before save the data info
         saveBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

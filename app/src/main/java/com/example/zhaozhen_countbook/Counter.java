@@ -3,19 +3,20 @@ package com.example.zhaozhen_countbook;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static android.R.attr.name;
 
-/**
- * Created by CrackCrack on 2017-10-01.
- */
+//class for the data structure use in this app
 
 public class Counter {
+
+    // setting up all the attributes that are needed for the app
     private String Name;
     private Date date;
     private String Comment;
     private int InitialValue;
     private int CurrentValue;
 
+
+    //passing in info when object creates
     public Counter( String Name, String Comment, int InitialValue){
         this.Name = Name;
         this.date = new Date();
@@ -23,6 +24,8 @@ public class Counter {
         this.InitialValue = InitialValue;
         this.CurrentValue = InitialValue;
     }
+
+    // methods that are needed for operation in the app
 
     public String getName(){
         return Name;
@@ -56,6 +59,8 @@ public class Counter {
         this.CurrentValue = CurrentValue;
     }
 
+
+    //control the display for the listview
     public String toString() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         return "Name: "+Name + "\nCurrent Count: " + Integer.toString(CurrentValue) + "\nDate:" + df.format(date);
